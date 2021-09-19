@@ -115,7 +115,9 @@ pacman -S dhcpcd iwctl
 ```
 
 16. Install and configure GRUB:
-```bash
+
+{% raw %}
+``` bash
 pacman -S grub
 
 # install to drive
@@ -126,6 +128,7 @@ grub-install --target=i386-pc /dev/sda
 # generate config
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
+{% endraw %}
 
 17. Reboot to newly installed system
 
