@@ -211,5 +211,5 @@ Web surfing is of course also not the fastest experience ever seen, but perfectl
 So overall, I am extremely happy with the money invested. For a total of about 150 Euro, I have a very portable, decently performing native Linux 
 device.
 
-### References
+## References
 [Arch Wiki - Installation Guide](https://wiki.archlinux.org/index.php/installation_guide)
