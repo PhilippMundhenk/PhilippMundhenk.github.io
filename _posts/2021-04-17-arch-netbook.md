@@ -166,16 +166,16 @@ timedatectl set-timezone Europe/Berlin
 ```
 
 5. Install GUI:
-{% raw %}
-```bash
-yay -S i3-wm i3lock i3status dmenu xorg-server ttf-dejavu
-# in ~/.xinitrc put: 'exec i3'
-# in ~/.bash_profile put:
-if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-	startx
-fi
-```
-{% endraw %}
+    {% raw %}
+    ```bash
+    yay -S i3-wm i3lock i3status dmenu xorg-server ttf-dejavu
+    # in ~/.xinitrc put: 'exec i3'
+    # in ~/.bash_profile put:
+    if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
+    	    startx
+    fi
+    ```
+    {% endraw %}
 
 6. Configure i3:
 In ```/~/.config/i3/config``` add:
