@@ -42,8 +42,7 @@ Then, on the target machine, boot into the live environment.
 ### Installation
 
 1. Set keymap for live environment:
-
-``` bash
+```bash
 loadkeys de-latin1
 ```
 
@@ -115,7 +114,6 @@ pacman -S dhcpcd iwctl
 ```
 
 16. Install and configure GRUB:
-
 {% raw %}
 ``` bash
 pacman -S grub
