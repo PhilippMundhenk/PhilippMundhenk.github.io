@@ -42,9 +42,10 @@ Then, on the target machine, boot into the live environment.
 ### Installation
 
 1. Set keymap for live environment:
-'''bash
+
+``` bash
 loadkeys de-latin1
-'''
+```
 
 2. Connect to internet with either '''ip''' (Ethernet)  or '''iwctl''' (WiFi) with '''station wlan0 connect <SSID>'''.
 
