@@ -47,75 +47,75 @@ Then, on the target machine, boot into the live environment.
 loadkeys de-latin1
 ```
 
-2. Connect to internet with either '''ip''' (Ethernet)  or '''iwctl''' (WiFi) with '''station wlan0 connect <SSID>'''.
+2. Connect to internet with either ```ip``` (Ethernet)  or ```iwctl``` (WiFi) with ```station wlan0 connect <SSID>```.
 
-3. Update clock: '''timedatectl set-ntp true'''
+3. Update clock: ```timedatectl set-ntp true```
 
 4. Partition disks:
-'''bash
+```bash
 fdisk /dev/sda
 # delete all partitions (use 'd')
 # create new parition (use 'n' and defaults)
 # make bootable (use 'a')
 # write to disk (use 'w')
-'''
+```
 
 5. Format partition:
-'''bash
+```bash
 mkfs.ext4 /dev/sda1
-'''
+```
 
 6. Mount partition:
-'''bash
+```bash
 mount /dev/sda1 /mnt
-'''
+```
 
 7. Install basic packages:
-'''bash
+```bash
 pacstrap /mnt base-devel linux linux-firmware
-'''
+```
 
 8. Generate fstab:
-'''bash
+```bash
 genfstab -U /mnt >> /mnt/etc/fstab
-'''
+```
 
 9. Move to new system:
-'''bash
+```bash
 arch-chroot /mnt
-'''
+```
 
 10. SetHW clock to system time:
-'''bash
+```bash
 hwclock --systohc
-'''
+```
 
 11. Localization:
-Uncomment '''en_US.UTF-8 UTF-8''' in '''/etc/locale.gen''' and run '''locale-gen'''
-In '''/etc/locale.conf''' put '''LANG=en_US.UTF-8'''
+Uncomment ```en_US.UTF-8 UTF-8``` in ```/etc/locale.gen``` and run ```locale-gen```
+In ```/etc/locale.conf``` put ```LANG=en_US.UTF-8```
 
 12. Configure keyboard layout:
-In '''/etc/vconsole.conf''' put '''KEYMAP=de-latin1'''
+In ```/etc/vconsole.conf``` put ```KEYMAP=de-latin1```
 
 13. Configure hostname:
-In '''/etc/hostname''' put '''<hostname>'''.
-In '''etc/hosts''' put:
-'''bash
+In ```/etc/hostname``` put ```<hostname>```.
+In ```etc/hosts``` put:
+```bash
 127.0.0.1	localhost
 ::1		localhost
 127.0.1.1	<hostname>.localdomain	<hostname>
-'''
+```
 
 14. Change root password:
-Run '''passwd'''
+Run ```passwd```
 
 15. Install networking packages:
-'''bash
+```bash
 pacman -S dhcpcd iwctl
-'''
+```
 
 16. Install and configure GRUB:
-'''bash
+```bash
 pacman -S grub
 
 # install to drive
@@ -125,7 +125,7 @@ grub-install --target=i386-pc /dev/sda
 
 # generate config
 grub-mkconfig -o /boot/grub/grub.cfg
-'''
+```
 
 17. Reboot to newly installed system
 
@@ -134,12 +134,12 @@ grub-mkconfig -o /boot/grub/grub.cfg
 The following optional steps usually make sense:
 
 1. Update system:
-'''bash
+```bash
 pacman -Syu
-'''
+```
 
 2. Create user & permissions:
-'''bash
+```bash
 pacman -S vi sudo
 useradd -m <user>
 visudo
@@ -149,33 +149,33 @@ usermod -a -G sudo <user>
 passwd <user>
 logout
 # log in as <user>
-'''
+```
 
 3. Install yay for AUR:
-'''bash
+```bash
 pacman -S --needed git
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
-'''
+```
 
 4. Set timezone:
-'''bash
+```bash
 timedatectl set-timezone Europe/Berlin
-'''
+```
 
 5. Install GUI:
-'''bash
+```bash
 yay -S i3-wm i3lock i3status dmenu xorg-server ttf-dejavu
 # in ~/.xinitrc put: 'exec i3'
 # in ~/.bash_profile put:
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
 	startx
 fi
-'''
+```
 
 6. Configure i3:
-In '''/~/.config/i3/config''' add:
+In ```/~/.config/i3/config``` add:
 
 mode "exit: [e]xit, [r]eboot, [s]hutdown, loc[k]" {
   bindsym e exec i3-msg exit
@@ -191,7 +191,7 @@ mode "exit: [e]xit, [r]eboot, [s]hutdown, loc[k]" {
 bindsym $mod+x mode "exit: [e]xit, [r]eboot, [s]hutdown, loc[k]"
 
 exec "setxkbmap -layout de"
-'''
+```
 
 ## Performance & Evaluation
 
