@@ -115,7 +115,7 @@ pacman -S dhcpcd iwctl
 
 16. Install and configure GRUB:
 {% raw %}
-``` bash
+```bash
 pacman -S grub
 
 # install to drive
